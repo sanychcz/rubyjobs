@@ -1,3 +1,10 @@
 <div class="row">
-	<h1>Hi!</h1>
+	<h1>Not approved vacancies</h1>
 </div>
+<div class="row">
+	<% @vacancies.each do |vacancy| %>
+		<%= link_to vacancy.title, vacancy_path  %>
+		<span class="radius secondary label"><%=link_to approve_vacancy(vacancy), toggle_approve_vacancy_path(vacancy), :remote => true %></span>		
+	<% end %>	
+</div>
+ 

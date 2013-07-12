@@ -1,0 +1,36 @@
+<div class="row">
+	<div  class="large-6 large-centered columns">
+		<h1>Add new vacancy</h1>
+	</div>	
+</div>
+
+<div class="row">
+	<div  class="large-6 large-centered columns">
+		<%= form_for @vacancy do |f|  %>
+			<%= f.label :title, "Vacancy title" %>
+			<%= f.text_field :title %>
+			<%= f.label :description, "Vacancy description" %>
+			<%= f.text_area :description %>
+			<%= f.label :junior, "Suitable for juniors?" %>
+			<%= f.check_box :junior %>	
+			<%= f.label :hot, "Hot vacancy?" %>		
+			<%= f.check_box :hot %>
+			<%= f.label :cuty, "Place of work" %>
+			<%= f.text_field :city %>
+			<h3>Contact information</h3>
+			<%= f.label :email %>	
+			<%= f.text_field :email %>
+			<%= f.label :comapny, "Company name" %>
+			<%= f.text_field :company %>
+			<%= f.label :web %>
+			<%= f.text_field :web %>
+			<%= f.label :phone %>
+			<%= f.text_field :phone %>
+			<%= f.label :person, "Contact person" %>
+			<%= f.text_field :person %>
+
+			<%= f.submit "Post vacancy", :class=> "button secondary" %>
+
+		<% end %>
+	</div>
+</div>
