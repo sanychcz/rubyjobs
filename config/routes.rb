@@ -1,12 +1,12 @@
 Rubyjobs::Application.routes.draw do
 
-  get "pages/index"
+  match 'conditions', to: 'pages#conditions'
+  match 'confirmation', to: 'pages#confirmation'
+  match 'about', to: 'pages#about'
 
   resources :users, only: [:new, :create, :show] 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :vacancies do
-    get 'toggle_approve', :on => :member 
-  end
+  resources :vacancies
 
   match 'signin', to: 'sessions#new'
   match 'signout', to: 'sessions#destroy', via: :delete

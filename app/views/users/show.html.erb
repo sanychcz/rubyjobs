@@ -1,10 +1,20 @@
 <div class="row">
-	<h1>Not approved vacancies</h1>
+	<h1>All vacancies</h1>
 </div>
 <div class="row">
 	<% @vacancies.each do |vacancy| %>
-		<%= link_to vacancy.title, vacancy_path  %>
-		<span class="radius secondary label"><%=link_to approve_vacancy(vacancy), toggle_approve_vacancy_path(vacancy), :remote => true %></span>		
+		<div class="row">
+			<div class="large-12 columns">
+				<div class="large-6 columns">
+					<%= link_to vacancy.title, edit_vacancy_path(vacancy)  %>
+				</div>
+				<div class="large-2 columns">	
+					<span class="radius secondary label"><%= approve_vacancy(vacancy) %></span>
+				</div>
+				<div class="large-2 columns">	
+					<%= link_to "delete", vacancy_path(vacancy), method: :delete, data: { confrim: "Are you sure?" }  %>
+				</div>
+			</div>
+		</div>																				
 	<% end %>	
 </div>
- 

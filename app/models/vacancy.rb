@@ -1,5 +1,5 @@
 class Vacancy < ActiveRecord::Base
-   attr_accessible :title, :description, :junior, :hot, :city, :email, :company, :web, :phone, :person
+   attr_accessible :title, :description, :junior, :hot, :city, :email, :company, :web, :phone, :person, :distance, :office, :salary, :confirmed
 
    validates :title, presence: true
    validates :description, presence: true
@@ -8,4 +8,8 @@ class Vacancy < ActiveRecord::Base
    validates :company, presence: true
    validates :phone, presence: true
    validates :person, presence: true
+
+   default_scope order: 'vacancies.created_at DESC'
+
+   self.per_page = 10
 end

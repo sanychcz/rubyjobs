@@ -1,24 +1,41 @@
 <div class="row">
-	<div class="large-8 columns">
-		<h1>All vacancies</h1>	
-	</div>
-	<div class="large-4 columns">
-		<h4><%= link_to "New vacancy", new_vacancy_path, :class => "large alert button expand"  %></h4>
-	</div>	
-</div>
-<div class="row">
-	<div class="large-12 large-centered columns">
-		<% @vacancies.each do |vacancy| %>
-			<% if vacancy.confirmed? %>
-				<h3><%= link_to vacancy.title, vacancy_path(vacancy) %></h3>
+	<% @vacancies.each do |vacancy| %>
+		<% if vacancy.confirmed? %>
+			<div class="row">
+				<div class="large-9 columns">
+					<h3><%= link_to vacancy.title, vacancy_path(vacancy) %></h3>
+					<h5 class="subheader" style="font-style:italic;"><%= vacancy.city %></h5>
+				</div>
+				<div class="large-3 columns">
+					<p></p>
 					<% if vacancy.hot? %>
-						<span class="alert label">HOT</span>
+						<span class="radius alert label">HOT</span>
 					<% end %>
 					<% if vacancy.junior? %>
-						<span class="success label">Juniors</span>
+						<span class="radius success label">Juniors</span>
 					<% end %>
-				<h5><%= truncate(vacancy.description, length: 150 ) %></h5>
-			<% end %>
+					<p></p>
+					<% if vacancy.office? %>
+						<span class="radius label" style="background-color:#1d0f98;">Office work</span>
+					<% end %>
+					<% if vacancy.distance? %>
+						<span class="radius label">Distance work</span>
+					<% end %>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<span class="round secondary label"><%= vacancy.company %></span>
+					<span class="round secondary label">published on: <%= vacancy.created_at.to_s(:vacancy_date) %></span>
+					<% if vacancy.salary %>
+						<span class="round label" style="background-color:#3e3c3c; color:white;">salary from: <%= vacancy.salary %> czk/m</span>
+					<% end %>	
+				</div>		
+			</div>
+			<hr />
 		<% end %>
-	<div/>		
-<div/>
+	<% end %>		
+</div>
+<div class="row">
+	<%= will_paginate @vacancies %>
+</div>

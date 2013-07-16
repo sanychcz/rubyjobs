@@ -1,29 +1,51 @@
 <div class="row">
 	<div class="row">
-		<h1><%= @vacancy.title %></h1>	
+		<div class="large-8 columns">
+			<ul class="breadcrumbs">
+		 		<li><%= link_to "all vacancies", root_path %></li>
+		  	<li><%= link_to "#{@vacancy.title}", vacancy_path(@vacancy) %></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-8 columns">
+			<h1><%= @vacancy.title %></h1>
+		</div>
+		<% if @vacancy.salary? %>
+			<div class="large-4 columns">
+				<h2><%= @vacancy.salary %> czk/m</h2>
+			</div>
+		<% end %>			
 	</div>
 	<div class="row">
 		<div class="large-8 columns">	
 			<h4 class="subheader"><%= @vacancy.city  %></h4>	
 			<% if @vacancy.hot?  %>
-				<span class="alert label">HOT</span>
+				<span class="radius alert label">HOT</span>
 			<% end %>
 			<% if @vacancy.junior? %>
-				<span class="success label">Juniors</span>
+				<span class="radius success label">Juniors</span>
+			<% end %>
+			<% if @vacancy.office? %>
+				<span class="radius label" style="background-color:#1d0f98;">Office work</span>
+			<% end %>
+			<% if @vacancy.distance? %>
+				<span class="radius label">Distance work</span>
 			<% end %>	
-			<p><%= @vacancy.description %></p>
-		</div>
+			<div class="row">
+				<p></p>
+			</div>
+			<p style="font-family: Inconsolata;"><%= @vacancy.description %></p>
+		</div>	
 		<div class="large-4 columns">
-		<ul class="pricing-table">
+		<ul class="pricing-table" style="font-family: Inconsolata;">
 		  <li class="title">Company information</li>
 		  <li class="price"><%= @vacancy.company %></li>
-		  <li class="bullet-item"><%= mail_to @vacancy.email %></li>
-		  <li class="bullet-item"><%= link_to @vacancy.web, "http://#{@vacancy.web}"%></li>
-		  <li class="bullet-item"><%= @vacancy.phone %></li>
-		  <li class="bullet-item"><%= @vacancy.person %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;">Email: </span><%= mail_to @vacancy.email %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;">Web: </span><%= link_to @vacancy.web, "http://#{@vacancy.web}"%></li>
+		  <li class="bullet-item"><span style="font-weight: bold;">Phone:</span> <%= @vacancy.phone %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;">Contact person:</span> <%= @vacancy.person %></li>
 		</ul>
 		</div>
 	</div>	
 </div>
-
-

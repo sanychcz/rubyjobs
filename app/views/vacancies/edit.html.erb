@@ -1,10 +1,7 @@
 <div class="row">
-	<div  class="large-6 large-centered columns">
-		<h1>Add new vacancy</h1>
-		<h5 class="subheader" style="background-color:#f68451; color:white;">fields with * are mandatory</h5>
-	</div>	
+	<h1>Editing vacancy <%= @vacancy.title %></h1>
 </div>
-<p></p>
+
 <div class="row">
 	<div  class="large-6 large-centered columns">
 		<%= form_for @vacancy do |f|  %>
@@ -53,8 +50,10 @@
 			<%= f.label :person, "Contact person*" %>
 			<%= f.text_field :person, :placeholder => "Milos Zeman.." %>
 
+			<%= f.label :confirmed, "Confirm?" %>
+			<%= f.check_box :confirmed %>
+
 			<div class="panel">
-				<h6 class="subheader">Posting vacancy, you automatically agree with <%= link_to "conditions and terms", "/conditions" %></h6>
 			  <%= f.submit "Post vacancy", :class=> "small button " %>
 			</div>
 		<% end %>		

@@ -18,6 +18,7 @@
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -30,8 +31,47 @@
         </div>
       </div>
     <% end %>    
+
+    <div class="row">
+      <div class="large-2 columns">
+        <%= link_to (image_tag ("1123.png")), root_path %>  
+      </div>
+      <div class="large-7 columns">
+        <h1>Ruby Jobs</h1>
+        <h4 class="subheader">Vacancies for ruby developers</h4>  
+      </div>
+      <div class="large-3 columns">
+        <p></p>
+        <h5><%= link_to "New vacancy", new_vacancy_path, :class => "radius alert button"  %></h5>
+      </div>  
+    </div>
+    <div class="row">
+      <hr />
+    </div>  
         
     <%= yield %>
+    
+    <div class="row">
+      <p></p>
+    </div>
+
+    <div class="row" style="background-color: #dee4fa">
+      <p></p>
+      <div class="large-8 large-centered columns">
+        <div class="large-5 columns">
+          <ul class="inline-list">
+            <li><%= link_to "About", "/about"  %></li>
+            <li><%= link_to "Conditions", "/conditions"  %></li>
+            <li><%= link_to "Contact", "/about"  %></li>
+          </ul>
+        </div>
+        <div class="large-3 columns">
+          <%= image_tag("facebook.jpg") %>
+          <%= image_tag("facebook.jpg") %>
+          <%= image_tag("facebook.jpg") %>
+        </div>
+      </div>    
+    </div>
 
     <%= javascript_include_tag "application" %>
   </body>
