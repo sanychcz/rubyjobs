@@ -11,5 +11,5 @@ class Vacancy < ActiveRecord::Base
 
    default_scope order: 'vacancies.created_at DESC'
 
-   self.per_page = 10
+   self.per_page = 3
 end

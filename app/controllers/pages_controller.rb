@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
+
   def index
-  	@vacancies = Vacancy.paginate(:page => params[:page])
+  	@vacancies = Vacancy.where(:confirmed => true).paginate(:page => params[:page])
   end
 
   def conditions

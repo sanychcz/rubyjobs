@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'bcrypt-ruby'
 gem 'will_paginate', '~> 3.0'
+gem 'foundation-will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.
