@@ -1,3 +1,5 @@
+<% provide(:title, "New vacancy") %>
+
 <div class="row">
 	<div  class="large-6 large-centered columns">
 		<h1>Add new vacancy</h1>
@@ -8,6 +10,7 @@
 <div class="row">
 	<div  class="large-6 large-centered columns">
 		<%= form_for @vacancy do |f|  %>
+			<%= render 'shared/error_message', object: f.object %>
 			<%= f.label :title, "Vacancy title*" %>
 			<%= f.text_field :title, :placeholder => "Senior rails developer.." %>
 			<%= f.label :description, "Vacancy description*" %>
@@ -37,10 +40,13 @@
 				</div>	
 			</div>
 			<p></p>
-			<%= f.label :salary, "Salary in czk. !No spaces!" %>
+			<%= f.label :salary, "Salary in czk" %>
 			<%= f.text_field :salary, :placeholder => "30000" %>
 			<%= f.label :city, "City of work*" %>
 			<%= f.text_field :city, :placeholder => "Prague, Brno, etc.." %>
+			<%= f.label :details, "Details" %>
+			<%= f.text_area :details, :placeholder => "Put some details here..", :size => '10x10' %>
+
 			<h3>Contact information</h3>
 			<%= f.label :email, "Email*" %>	
 			<%= f.text_field :email %>
@@ -49,7 +55,7 @@
 			<%= f.label :web, "Web without http://" %>
 			<%= f.text_field :web, :placeholder => "company.com" %>
 			<%= f.label :phone, "Phone*" %>
-			<%= f.text_field :phone, :placeholder => "+420 111 222 333" %>
+			<%= f.text_field :phone, :placeholder => "420 111 222 333" %>
 			<%= f.label :person, "Contact person*" %>
 			<%= f.text_field :person, :placeholder => "Milos Zeman.." %>
 

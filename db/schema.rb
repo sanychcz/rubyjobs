@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716102917) do
+ActiveRecord::Schema.define(:version => 20130719155604) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -26,17 +26,18 @@ ActiveRecord::Schema.define(:version => 20130716102917) do
     t.text     "description"
     t.boolean  "hot"
     t.boolean  "junior"
-    t.boolean  "confirmed",   :default => false
+    t.boolean  "confirmed",                  :default => false
     t.string   "email"
     t.string   "company"
     t.string   "web"
     t.string   "phone"
     t.string   "person"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.boolean  "distance"
     t.boolean  "office"
-    t.integer  "salary"
+    t.string   "salary"
+    t.text     "details",     :limit => 255
   end
 
 end

@@ -1,3 +1,5 @@
+<% provide(:title, "Edit vacancy") %>
+
 <div class="row">
 	<h1>Editing vacancy <%= @vacancy.title %></h1>
 </div>
@@ -38,6 +40,8 @@
 			<%= f.text_field :salary, :placeholder => "30000" %>
 			<%= f.label :city, "City of work*" %>
 			<%= f.text_field :city, :placeholder => "Prague, Brno, etc.." %>
+			<%= f.label :details, "Details" %>
+			<%= f.text_area :details, :placeholder => "Put some details here..", :size => '10x10' %>	
 			<h3>Contact information</h3>
 			<%= f.label :email, "Email*" %>	
 			<%= f.text_field :email %>
@@ -54,7 +58,7 @@
 			<%= f.check_box :confirmed %>
 
 			<div class="panel">
-			  <%= f.submit "Post vacancy", :class=> "small button " %>
+			  <%= f.submit "Save vacancy", :class=> "small button " %>
 			</div>
 		<% end %>		
 	</div>

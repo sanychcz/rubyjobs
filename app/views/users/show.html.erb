@@ -1,3 +1,5 @@
+<% provide(:title, "User profile") %>
+
 <div class="row">
 	<h1>All vacancies</h1>
 </div>
@@ -11,8 +13,11 @@
 				<div class="large-2 columns">	
 					<span class="radius secondary label"><%= approve_vacancy(vacancy) %></span>
 				</div>
-				<div class="large-2 columns">	
+				<div class="large-1 columns">	
 					<%= link_to "delete", vacancy_path(vacancy), method: :delete, data: { confrim: "Are you sure?" }  %>
+				</div>
+				<div class="large-3 columns">	
+					<%= vacancy.company %>
 				</div>
 			</div>
 		</div>																				

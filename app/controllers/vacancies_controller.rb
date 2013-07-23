@@ -48,4 +48,5 @@ class VacanciesController < ApplicationController
 		@vacancy = Vacancy.find(params[:id])
 		redirect_to root_url unless @vacancy.confirmed?
 	end
+
 end
