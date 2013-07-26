@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def hot_vacancy
+    @vacancy = Vacancy.find(params[:id])
+    render text: "hot" if @vacancy.hot?
+  end
 end

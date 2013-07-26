@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'bcrypt-ruby'
 gem 'will_paginate', '~> 3.0'
 gem 'foundation-will_paginate'
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -3,6 +3,7 @@ Rubyjobs::Application.routes.draw do
   match 'conditions', to: 'pages#conditions'
   match 'confirmation', to: 'pages#confirmation'
   match 'about', to: 'pages#about'
+  match 'contact', to: 'pages#contact'
 
   resources :users, only: [:new, :create, :show] 
   resources :sessions, only: [:new, :create, :destroy]

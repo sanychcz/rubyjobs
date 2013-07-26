@@ -22,7 +22,7 @@
 	<div class="row">
 		<div class="large-8 columns">	
 			<h4 class="subheader"><%= @vacancy.city  %></h4>	
-			<% if @vacancy.hot?  %>
+			<% if @vacancy.hot? %>
 				<span class="radius alert label">HOT</span>
 			<% end %>
 			<% if @vacancy.junior? %>
@@ -37,8 +37,8 @@
 			<div class="row">
 				<p></p>
 			</div>
-			<p style="font-family: Inconsolata;"><%= @vacancy.description %></p>
-			<% if @vacancy.details %>
+			<p style="font-family: Inconsolata;"><%= markdown(@vacancy.description) %></p>
+			<% if @vacancy.details? %>
 				<div class="panel">
 					<%= @vacancy.details %>
 				</div>
@@ -48,7 +48,7 @@
 		<ul class="pricing-table" style="font-family: Inconsolata;">
 		  <li class="title">Company information</li>
 		  <li class="price"><%= @vacancy.company %></li>
-		  <li class="bullet-item"><span style="font-weight: bold;">Email: </span><%= mail_to @vacancy.email %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;">Email: </span><%= @vacancy.email %></li>
 		  <li class="bullet-item"><span style="font-weight: bold;">Web: </span><%= link_to @vacancy.web, "http://#{@vacancy.web}"%></li>
 		  <li class="bullet-item"><span style="font-weight: bold;">Phone:</span> +<%= @vacancy.phone %></li>
 		  <li class="bullet-item"><span style="font-weight: bold;">Contact person:</span> <%= @vacancy.person %></li>

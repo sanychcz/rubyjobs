@@ -7,6 +7,7 @@
 <div class="row">
 	<div  class="large-6 large-centered columns">
 		<%= form_for @vacancy do |f|  %>
+	 		<%= render 'shared/error_message', object: f.object %>
 			<%= f.label :title, "Vacancy title*" %>
 			<%= f.text_field :title, :placeholder => "Senior rails developer.." %>
 			<%= f.label :description, "Vacancy description*" %>

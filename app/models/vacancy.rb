@@ -16,5 +16,8 @@ class Vacancy < ActiveRecord::Base
 
    default_scope order: 'vacancies.created_at DESC'
 
-   self.per_page = 3 
+   #scope :praha, -> { where(city: "Prague") }
+
+   self.per_page = 10
+
 end
