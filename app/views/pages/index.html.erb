@@ -1,4 +1,4 @@
-<% provide(:title, "All vacancies") %>
+<% provide(:title, I18n.t(:all_vacancies)) %>
 
 <div clas="row">
 	<div class="large-2 columns">
@@ -11,32 +11,24 @@
 		<% if vacancy.confirmed? %>
 			<div class="row">
 				<div class="large-9 columns">
-					<h3><%= link_to vacancy.title, vacancy_path(vacancy) %></h3>
+					<h3><%= link_to vacancy.title, vacancy_path(vacancy) %><small>	<%= archived(vacancy) %></small></h3>
 					<h5 class="subheader" style="font-style:italic;"><%= vacancy.city %></h5>
 				</div>
 				<div class="large-3 columns">
 					<p></p>
-					<% if vacancy.hot? %>
-						<span class="radius alert label">HOT</span>
-					<% end %>
-					<% if vacancy.junior? %>
-						<span class="radius success label">Juniors</span>
-					<% end %>
-					<p></p>
-					<% if vacancy.office? %>
-						<span class="radius label" style="background-color:#1d0f98;">Office work</span>
-					<% end %>
-					<% if vacancy.distance? %>
-						<span class="radius label">Distance work</span>
-					<% end %>
+						<%= hot(vacancy) %>
+						<%= distance(vacancy) %>	
+						<p></p>
+						<%= junior(vacancy) %>	
+						<%= office(vacancy) %>						
 				</div>	
 			</div>
 			<div class="row">
 				<div class="large-12 columns">
 					<span class="round secondary label"><%= vacancy.company %></span>
-					<span class="round secondary label">published on: <%= vacancy.created_at.to_s(:vacancy_date) %></span>
+					<span class="round secondary label"><%= I18n.t(:published) %> <%= vacancy.created_at.to_s(:vacancy_date) %></span>
 					<% if vacancy.salary %>
-						<span class="round label" style="background-color:#3e3c3c; color:white;">salary from: <%= vacancy.salary %> czk/m</span>
+						<span class="round label" style="background-color:#3e3c3c; color:white;"><%= I18n.t(:salary) %><%= vacancy.salary %><%=I18n.t(:czk)%></span>
 					<% end %>	
 				</div>		
 			</div>

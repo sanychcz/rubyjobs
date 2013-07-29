@@ -39,11 +39,18 @@
       </div>
       <div class="large-7 columns">
         <h1>Ruby Jobs</h1>
-        <h4 class="subheader">Vacancies for ruby developers</h4>  
+        <h4 class="subheader"><%= I18n.t(:subheader) %></h4>  
       </div>
       <div class="large-3 columns">
         <p></p>
-        <h5><%= link_to "New vacancy", new_vacancy_path, :class => "radius alert button"  %></h5>
+        <h5><%= link_to I18n.t(:button_new_vac), new_vacancy_path, :class => "radius alert button"  %></h5>
+        <p>
+          <% if I18n.locale == I18n.default_locale %>
+            switch to: <%= link_to "English", :locale=>'en'%>
+          <% else %>
+            přepnout na: <%= link_to "Český", :locale=>'cs'%>
+          <%end%>
+        </p>
       </div>  
     </div>
     <div class="row">
@@ -56,14 +63,14 @@
       <p></p>
     </div>
 
-    <div class="row" style="background-color: #dee4fa">
+    <div class="row" style="background-color: #dee4fa;">
       <p></p>
-      <div class="large-8 large-centered columns">
-        <div class="large-5 columns">
+      <div class="large-9 large-centered columns">
+        <div class="large-6 columns">
           <ul class="inline-list">
-            <li><%= link_to "About", "/about"  %></li>
-            <li><%= link_to "Conditions", "/conditions"  %></li>
-            <li><%= link_to "Contact", "/contact"  %></li>
+            <li><%= link_to I18n.t(:about_page), "/about"  %></li>
+            <li><%= link_to I18n.t(:conditions_page), "/conditions"  %></li>
+            <li><%= link_to I18n.t(:contact_page), "/contact"  %></li>
           </ul>
         </div>
         <div class="large-3 columns">

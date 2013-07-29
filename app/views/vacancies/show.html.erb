@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<ul class="breadcrumbs">
-		 		<li><%= link_to "all vacancies", root_path %></li>
+		 		<li><%= link_to I18n.t(:all_vacancies), root_path %></li>
 		  	<li><%= link_to "#{@vacancy.title}", vacancy_path(@vacancy) %></li>
 			</ul>
 		</div>
@@ -15,25 +15,17 @@
 		</div>
 		<% if @vacancy.salary? %>
 			<div class="large-4 columns">
-				<h3>from: <%= @vacancy.salary %> czk/m</h3>
+				<h3> <%= I18n.t(:salary) %><%= @vacancy.salary %> <%=I18n.t(:czk)%></h3>
 			</div>
 		<% end %>			
 	</div>
 	<div class="row">
 		<div class="large-8 columns">	
 			<h4 class="subheader"><%= @vacancy.city  %></h4>	
-			<% if @vacancy.hot? %>
-				<span class="radius alert label">HOT</span>
-			<% end %>
-			<% if @vacancy.junior? %>
-				<span class="radius success label">Juniors</span>
-			<% end %>
-			<% if @vacancy.office? %>
-				<span class="radius label" style="background-color:#1d0f98;">Office work</span>
-			<% end %>
-			<% if @vacancy.distance? %>
-				<span class="radius label">Distance work</span>
-			<% end %>	
+			<%= hot(@vacancy) %>		
+			<%= distance(@vacancy) %>
+			<%= junior(@vacancy) %>
+			<%= office(@vacancy) %>
 			<div class="row">
 				<p></p>
 			</div>
@@ -46,12 +38,12 @@
 		</div>	
 		<div class="large-4 columns">
 		<ul class="pricing-table" style="font-family: Inconsolata;">
-		  <li class="title">Company information</li>
+		  <li class="title"><%= I18n.t(:contact_information) %></li>
 		  <li class="price"><%= @vacancy.company %></li>
-		  <li class="bullet-item"><span style="font-weight: bold;">Email: </span><%= @vacancy.email %></li>
-		  <li class="bullet-item"><span style="font-weight: bold;">Web: </span><%= link_to @vacancy.web, "http://#{@vacancy.web}"%></li>
-		  <li class="bullet-item"><span style="font-weight: bold;">Phone:</span> +<%= @vacancy.phone %></li>
-		  <li class="bullet-item"><span style="font-weight: bold;">Contact person:</span> <%= @vacancy.person %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;"> Email: </span><%= @vacancy.email %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;"><%= I18n.t(:panel_web) %></span><%= link_to @vacancy.web, "http://#{@vacancy.web}"%></li>
+		  <li class="bullet-item"><span style="font-weight: bold;"><%= I18n.t(:panel_phone) %></span> +<%= @vacancy.phone %></li>
+		  <li class="bullet-item"><span style="font-weight: bold;"><%= I18n.t(:panel_person) %></span> <%= @vacancy.person %></li>
 		</ul>
 		</div>
 	</div>	

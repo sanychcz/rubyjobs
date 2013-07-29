@@ -1,9 +1,9 @@
-<% provide(:title, "New vacancy") %>
+<% provide(:title, I18n.t(:new_vacancy)) %>
 
 <div class="row">
 	<div  class="large-6 large-centered columns">
-		<h1>Add new vacancy</h1>
-		<h5 class="subheader" style="background-color:#f68451; color:white;">fields with * are mandatory</h5>
+		<h1><%= I18n.t(:new_vacancy) %></h1>
+		<h5 class="subheader" style="background-color:#f68451; color:white;"><%= I18n.t(:mandatory_fields) %></h5>
 	</div>	
 </div>
 <p></p>
@@ -11,57 +11,57 @@
 	<div  class="large-6 large-centered columns">
 		<%= form_for @vacancy do |f|  %>
 			<%= render 'shared/error_message', object: f.object %>
-			<%= f.label :title, "Vacancy title*" %>
+			<%= f.label :title, I18n.t(:vacancy_title) %>
 			<%= f.text_field :title, :placeholder => "Senior rails developer.." %>
-			<%= f.label :description, "Vacancy description*" %>
-			<%= f.text_area(:description, :placeholder => "Yoo can use makrdown", :size => '15x15') %>
+			<%= f.label :description, I18n.t(:vacancy_description) %>
+			<%= f.text_area(:description, :placeholder => I18n.t(:markdown), :size => '15x15') %>
 
-			<h4>Please choose options that are suitable:</h4>
+			<h4><%= I18n.t(:new_vacancy_options) %> </h4>
 
 			<div class="row">
 				<div class="large-6 columns">
-					<%= f.label :junior, "Suitable for juniors?" %>
+					<%= f.label :junior, I18n.t(:options_junior) %>
 					<%= f.check_box :junior, :class=> "checkbox" %>	
 				</div>
 				<div class="large-6 columns">
-					<%= f.label :hot, "Hot vacancy?" %>		
+					<%= f.label :hot, I18n.t(:options_hot) %>		
 					<%= f.check_box :hot %>
 				</div>	
 			</div>
 			<p></p>
 			<div class="row">				
 				<div class="large-6 columns">
-					<%= f.label :distance, "Distance work?" %>
+					<%= f.label :distance, I18n.t(:options_distance) %>
 					<%= f.check_box :distance %>	
 				</div>
 				<div class="large-6 columns">
-					<%= f.label :office, "Office work?" %>		
+					<%= f.label :office, I18n.t(:options_office) %>		
 					<%= f.check_box :office %>
 				</div>	
 			</div>
 			<p></p>
-			<%= f.label :salary, "Salary in czk" %>
+			<%= f.label :salary, I18n.t(:options_salary) %>
 			<%= f.text_field :salary, :placeholder => "30000" %>
-			<%= f.label :city, "City of work*" %>
+			<%= f.label :city, I18n.t(:options_city) %>
 			<%= f.text_field :city, :placeholder => "Prague, Brno, etc.." %>
-			<%= f.label :details, "Details" %>
-			<%= f.text_area :details, :placeholder => "Any details.. for examaple: please send CV in two languages: EN and CZ" , :size => '10x10' %>
+			<%= f.label :details, I18n.t(:options_details) %>
+			<%= f.text_area(:details, :placeholder =>  I18n.t(:details_desc), :size => '10x10') %>
 
-			<h3>Contact information</h3>
+			<h3><%= I18n.t(:contact_information) %></h3>
 			<%= f.label :email, "Email*" %>	
 			<%= f.text_field :email %>
-			<%= f.label :comapny, "Company name*" %>
+			<%= f.label :comapny, I18n.t(:company_name) %>
 			<%= f.text_field :company %>
-			<%= f.label :web, "Web without http://" %>
+			<%= f.label :web, I18n.t(:company_web) %>
 			<%= f.text_field :web, :placeholder => "company.com" %>
-			<%= f.label :phone, "Phone*" %>
+			<%= f.label :phone, I18n.t(:company_phone)  %>
 			<%= f.text_field :phone, :placeholder => "420 111 222 333" %>
-			<%= f.label :person, "Contact person*" %>
+			<%= f.label :person, I18n.t(:company_person) %>
 			<%= f.text_field :person, :placeholder => "Milos Zeman.." %>
 
 			<div class="panel">
-				<h6 class="subheader">Posting vacancy, you automatically agree with <%= link_to "conditions and terms", "/conditions" %></h6>
-			  <%= f.submit "Post vacancy", :class=> "small button " %>
+				<h6 class="subheader"><%= I18n.t(:agreement)%> <%= link_to  I18n.t(:conditions), "/conditions" %></h6>
+			  <%= f.submit I18n.t(:button_new_vac), :class=> "small button " %>
 			</div>
 		<% end %>		
 	</div>

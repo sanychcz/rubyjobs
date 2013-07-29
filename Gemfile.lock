@@ -71,6 +71,8 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-i18n (0.7.4)
+      i18n (~> 0.5)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -119,6 +121,7 @@ DEPENDENCIES
   foundation-will_paginate
   jquery-rails
   rails (= 3.2.13)
+  rails-i18n
   redcarpet
   sass-rails (~> 3.2.3)
   sqlite3
