@@ -10,8 +10,7 @@ class Vacancy < ActiveRecord::Base
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
    validates :email, presence: true, format: {with: VALID_EMAIL_REGEX }
    validates :company, presence: true
-   VALID_PHONE_REGEX = /(420)\s?\d{3}\s?\d{3}\s?\d{3}/
-   validates :phone, presence: true, format: {with: VALID_PHONE_REGEX }
+   validates :phone, presence: true
    validates :person, presence: true
 
    default_scope order: 'vacancies.created_at DESC'

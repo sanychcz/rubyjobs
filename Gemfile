@@ -11,6 +11,17 @@ gem 'will_paginate', '~> 3.0'
 gem 'foundation-will_paginate'
 gem 'redcarpet'
 
+group :development, :test do 
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+end
+
+group :test do
+	gem 'capybara'
+	gem 'faker'
+  gem "launchy"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
