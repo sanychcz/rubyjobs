@@ -14,8 +14,8 @@
  */
  
 
-body {
-	font-family: inconsolataregular;
+html, body {
+	font-family: 'inconsolataregular';
 }
 
 @font-face {
