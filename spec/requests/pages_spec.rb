@@ -23,4 +23,12 @@ describe "Pages" do
 		before { visit conditions_path }
 		it { should have_title full_title "Conditions" }
 	end 
+
+	describe "language panel" do
+		before { visit root_path }
+		it { should have_content("přepnout na: Český") }
+	end
+
+	describe "vacations" do
+	end
 end

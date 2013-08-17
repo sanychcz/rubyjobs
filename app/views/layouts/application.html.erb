@@ -46,9 +46,9 @@
         <h5><%= link_to I18n.t(:button_new_vac), new_vacancy_path, :class => "radius alert button"  %></h5>
         <p>
           <% if I18n.locale == I18n.default_locale %>
-            switch to: <%= link_to "English", :locale=>'en'%>
-          <% else %>
             přepnout na: <%= link_to "Český", :locale=>'cs'%>
+          <% else %>
+            switch to: <%= link_to "English", :locale=>'en'%>
           <%end%>
         </p>
       </div>  
