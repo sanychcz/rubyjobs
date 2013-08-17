@@ -10,11 +10,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="large-8 columns">
+		<div class="large-7 columns">
 			<h2><%= @vacancy.title %></h2>
 		</div>
 		<% if @vacancy.salary? %>
-			<div class="large-4 columns">
+			<div class="large-5 columns">
 				<h3> <%= I18n.t(:salary) %><%= @vacancy.salary %> <%=I18n.t(:czk)%></h3>
 			</div>
 		<% end %>			
@@ -29,7 +29,9 @@
 			<div class="row">
 				<p></p>
 			</div>
-			<p style="font-family: Inconsolata;"><%= markdown(@vacancy.description) %></p>
+			<div style="margin-left:17px;">
+				<p style="font-family: Inconsolata;"><%= markdown(@vacancy.description) %></p>
+			</div>
 			<% if @vacancy.details? %>
 				<div class="panel">
 					<%= @vacancy.details %>
